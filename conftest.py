@@ -1,4 +1,7 @@
-
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 @pytest.fixture(autouse=False, params=["chrome"])
 def driver(request):
     if request.param == "firefox":
