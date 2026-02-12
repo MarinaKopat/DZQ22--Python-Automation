@@ -1,6 +1,8 @@
 import pytest
 from freezegun import freeze_time
 from test import generate_week_schedule
+
+
 @pytest.mark.parametrize('days_ahead, tz, expected_len', [
     (1, 'Europe/Helsinki', 1),
     (7, 'Europe/Helsinki', 7),
@@ -10,6 +12,8 @@ from test import generate_week_schedule
 def test_generate_week_schedule_positive_lengths(days_ahead, tz, expected_len):
     result = generate_week_schedule(days_ahead=days_ahead, tz=tz)
     assert len(result) == expected_len
+
+
 @freeze_time('2023-10-23')
 @pytest.mark.parametrize('day_idx, expected_tuple', [
     (0, ('Mo', '23/10', '00:05–22:55')),
@@ -19,6 +23,8 @@ def test_generate_week_schedule_positive_lengths(days_ahead, tz, expected_len):
 def test_generate_week_schedule_logic(day_idx, expected_tuple):
     schedule = generate_week_schedule(days_ahead=7)
     assert schedule[day_idx] == expected_tuple
+
+
 @pytest.mark.parametrize('days_ahead', [
     -1,
     -100
@@ -26,6 +32,7 @@ def test_generate_week_schedule_logic(day_idx, expected_tuple):
 def test_generate_week_schedule_negative_days(days_ahead):
     result = generate_week_schedule(days_ahead=days_ahead)
     assert result == []
+
 
 @pytest.mark.parametrize('invalid_tz', [
     'Invalid/Zone',
