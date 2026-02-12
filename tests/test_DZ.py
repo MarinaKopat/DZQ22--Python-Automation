@@ -42,3 +42,4 @@ def test_generate_week_schedule_negative_days(days_ahead):
 def test_generate_week_schedule_invalid_tz(invalid_tz):
     with pytest.raises(Exception):
         generate_week_schedule(tz=invalid_tz)
+
