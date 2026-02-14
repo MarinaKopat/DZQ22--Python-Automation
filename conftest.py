@@ -15,6 +15,7 @@ def driver(request):
         # opts.add_argument("--headless=new")
         web_driver = webdriver.Chrome(options=opts)
         web_driver.maximize_window()
+        web_driver.implicitly_wait(3)
         web_driver.implicitly_wait(8)
 
     yield web_driver
