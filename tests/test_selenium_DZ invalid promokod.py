@@ -26,7 +26,7 @@ def test_fill_promocode_invalid(driver, invalid_code):
 
     promo_message_error = driver.find_element(By.CSS_SELECTOR, ".promo-message.error")
     assert promo_message_error.text == "Промокод не найден"
-    time.sleep(5)
+
 
 
 

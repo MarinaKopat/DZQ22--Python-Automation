@@ -1,25 +1,26 @@
 import time
 from selenium.webdriver.common.by import By
 
-url = 'http://localhost:3000/automation-lab/subscription'
-
-
-def get_css_element(driver, selector):
-    return driver.find_element(By.CSS_SELECTOR, selector)
+URL = 'http://localhost:3000/automation-lab/subscription'
 
 
 def test_period_switcher(driver):
-    driver.get(url)
-    driver.maximize_window()
-    driver.find_element(By.CSS_SELECTOR, '[data-testid="period-3"]').click()
+    driver.get(URL)
+    period_btn = driver.find_element(By.CSS_SELECTOR, '[data-testid="period-3"]')
+    period_btn.click()
     time.sleep(5)
+    assert "active" in period_btn.get_attribute("class"), "Кнопка периода не стала активной"
+
+    tariff_card = driver.find_element(By.CSS_SELECTOR, '[data-testid="tariff-premium"]')
+    tariff_card.click()
+    time.sleep(5)
+    assert "selected" in tariff_card.get_attribute("class"), "Карточка тарифа не выбрана"
 
 
-def tariff_period_badge(driver):
-    driver.get(url)
-    driver.maximize_window()
-    driver.find_element(By.CSS_SELECTOR, '[data-testid="tariff-premium"]').click()
-    time.sleep(5)
+
+
+
+
 
 
 

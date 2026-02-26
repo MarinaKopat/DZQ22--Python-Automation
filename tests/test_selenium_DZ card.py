@@ -2,8 +2,7 @@ import pytest
 import time
 from selenium.webdriver.common.by import By
 
-
-url = 'http://localhost:3000/automation-lab/subscription'
+URL = 'http://localhost:3000/automation-lab/subscription'
 
 
 def get_css_element(driver, selector):
@@ -14,8 +13,7 @@ def get_css_element(driver, selector):
     ('3213 2123 1321 3121', '12/28', '666')
 ])
 def test_payment_card_visual(driver, card_number, card_expiry, card_cvv):
-    driver.get(url)
-    driver.maximize_window()
+    driver.get(URL)
     time.sleep(5)
 
     card_input = driver.find_element(By.CSS_SELECTOR, ".card-number.card-input ")
@@ -28,7 +26,7 @@ def test_payment_card_visual(driver, card_number, card_expiry, card_cvv):
 
     cvv_input = driver.find_element(By.CSS_SELECTOR, ".card-cvv.card-input")
     cvv_input.send_keys(card_cvv)
-    time.sleep(5)
+
 
 
 
