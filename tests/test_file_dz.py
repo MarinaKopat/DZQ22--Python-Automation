@@ -31,7 +31,3 @@ def test_upload(driver):
     result = driver.find_element(By.ID, 'uploadedFilePath')
     assert result.is_displayed()
     assert 'sampleFile.jpeg' in result.text
-
-
-
-

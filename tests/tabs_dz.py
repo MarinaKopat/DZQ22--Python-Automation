@@ -21,15 +21,3 @@ def test_tab(driver):
     time.sleep(6)
     driver.switch_to.window(window_handles[0])
     assert driver.current_url == URL
-
-
-
-
-
-
-
-
-
-
-
-

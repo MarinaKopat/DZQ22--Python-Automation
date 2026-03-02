@@ -40,19 +40,3 @@ def test_all_click_methods(driver):
     time.sleep(6)
     element = driver.find_element(By.CSS_SELECTOR, "button.modal-close-x")
     element.click()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -80,9 +80,3 @@ def test_alert_text(driver):
     time.sleep(6)
     result_element = driver.find_element(By.ID, 'demo1')
     assert text in result_element.text
-
-
-
-
-
-
