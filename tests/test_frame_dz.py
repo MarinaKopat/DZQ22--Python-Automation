@@ -12,5 +12,4 @@ def test_frame(driver):
     driver.switch_to.frame(driver.find_element(By.ID, 'frame1'))
     text = driver.find_element(By.CSS_SELECTOR, '#sampleHeading')
     assert text.text == 'This is a sample page'
-
     driver.switch_to.default_content()
